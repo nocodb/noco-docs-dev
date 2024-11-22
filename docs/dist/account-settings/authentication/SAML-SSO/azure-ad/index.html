@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.1.1">
 <title data-rh="true">Azure AD (Entra) | NocoDB</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.nocodb.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.nocodb.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.nocodb.com/account-settings/authentication/SAML-SSO/azure-ad"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Azure AD (Entra) | NocoDB"><meta data-rh="true" name="description" content="Learn how to configure Active Directory as an identity provider for NocoDB."><meta data-rh="true" property="og:description" content="Learn how to configure Active Directory as an identity provider for NocoDB."><meta data-rh="true" name="keywords" content="SSO,Active Directory,SAML,Authentication,Identity Provider"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.nocodb.com/account-settings/authentication/SAML-SSO/azure-ad"><link data-rh="true" rel="alternate" href="https://docs.nocodb.com/account-settings/authentication/SAML-SSO/azure-ad" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.nocodb.com/account-settings/authentication/SAML-SSO/azure-ad" hreflang="x-default"><link rel="search" type="application/opensearchdescription+xml" title="NocoDB" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.0b7163c1.css">
-<script src="/assets/js/runtime~main.44c3628c.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.479ba674.js" defer="defer"></script>
 <script src="/assets/js/main.94c2b952.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -15,38 +15,48 @@
 <li>Go to <code>Account Settings</code></li>
 <li>Select <code>Authentication (SSO)</code></li>
 <li>Click on <code>New Provider</code> button</li>
-<li>On the Popup modal, Specify a <code>Display name</code> for the provider; note that, this name will be used to display the provider on the login page</li>
-<li>Retrieve <code>Redirect URL</code> &amp; <code>Audience / Entity ID</code>; these information will be required to be configured later with the Identity Provider</li>
+<li>On the Popup modal, Specify a <code>Display name</code> for the provider; note that, this name will be used to display the
+provider on the login page</li>
+<li>Retrieve <code>Redirect URL</code> &amp; <code>Audience / Entity ID</code>; these information will be required to be configured later with the
+Identity Provider</li>
 </ol>
 <p><img decoding="async" loading="lazy" alt="SAML SSO Configuration" src="/assets/images/SSO-1-aa9135167c7a7cfb680e4fa5e50c86a4.png" width="2420" height="1306" class="img_ev3q">
 <img decoding="async" loading="lazy" alt="SAML SSO Configuration" src="/assets/images/SAML-2-9ad2e18f3eb498cd699d0f627fb2bb65.png" width="2162" height="1446" class="img_ev3q">
 <img decoding="async" loading="lazy" alt="SAML SSO Configuration" src="/assets/images/SAML-3-3f208fb861d8e91cb30ecba18c9d7ae8.png" width="1366" height="1614" class="img_ev3q"></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="azure-ad-configure-nocodb-as-an-application">Azure AD, Configure NocoDB as an Application<a href="#azure-ad-configure-nocodb-as-an-application" class="hash-link" aria-label="Direct link to Azure AD, Configure NocoDB as an Application" title="Direct link to Azure AD, Configure NocoDB as an Application">​</a></h3>
 <ol>
-<li>Sign in to your <a href="https://portal.azure.com/#allservices" target="_blank" rel="noopener noreferrer">Azure account</a> and navigate to <code>Microsoft Entra admin center</code> &gt; <code>Identity</code> &gt; <code>Enterprise applications</code></li>
+<li>Sign in to your <a href="https://portal.azure.com/#allservices" target="_blank" rel="noopener noreferrer">Azure account</a> and navigate
+to <code>Microsoft Entra admin center</code> &gt; <code>Identity</code> &gt; <code>Enterprise applications</code></li>
 <li>Click <code>+ New application</code></li>
-<li>On the <code>Browse Microsoft Entra Gallery</code> page, select <code>Create your own application</code> from the navigation bar.
-a. Provide your application&#x27;s name.
-b. Choose <code>Integrate any other application you don&#x27;t find in the gallery (Non-gallery)</code>
-c. <code>Create</code></li>
+<li>On the <code>Browse Microsoft Entra Gallery</code> page, select <code>Create your own application</code> from the navigation bar.<!-- -->
+<ul>
+<li>Provide your application&#x27;s name.</li>
+<li>Choose <code>Integrate any other application you don&#x27;t find in the gallery (Non-gallery)</code></li>
+<li><code>Create</code></li>
+</ul>
+</li>
 <li>On your application page, navigate to <code>Manage</code> &gt; <code>Single sign-on</code> &gt; <code>SAML</code></li>
 <li>Go to the <code>Basic SAML Configuration</code> section under <code>Set up Single Sign-On with SAML</code> and click <code>Edit</code>
-a. Add the <code>Audience URI</code> under <code>Identifier (Entity ID)</code>.
-b. Add the <code>Redirect URL</code> under <code>Replay URL (Assertion Consumer Service URL)</code>.
-c. Click <code>Save</code></li>
+<ul>
+<li>Add the <code>Audience URI</code> under <code>Identifier (Entity ID)</code>.</li>
+<li>Add the <code>Redirect URL</code> under <code>Replay URL (Assertion Consumer Service URL)</code>.</li>
+<li>Click <code>Save</code></li>
+</ul>
+</li>
 <li>In the <code>Attributes &amp; Claims</code> section, click <code>Edit</code>
-a. Edit the &quot;Unique User Identifier (Name ID)&quot; claim:<!-- -->
+<ul>
+<li>Edit the &quot;Unique User Identifier (Name ID)&quot; claim:<!-- -->
 <ul>
 <li>Select <code>Email address</code> from the <code>Name identifier format</code> dropdown</li>
 <li>Choose <code>Attribute</code> as the <code>Source</code></li>
 <li>In the <code>Source attribute</code>, select <code>user.mail</code></li>
-<li>Click <code>Save</code>
-[//]: # (   b. (Optional) For custom claims:)
-[//]: # (        - Click Add new claim, provide details, and save.)
-[//]: # (        - Ensure the claim is visible in the Additional claims section.)
-[//]: # (        - Copy the claim name for later use in NocoDB SAML configurations.)</li>
+<li>Click <code>Save</code></li>
 </ul>
 </li>
+</ul>
+</li>
+</ol>
+<ol start="7">
 <li>Go to the <code>SAML Certificates</code> section and copy the <code>App Federation Metadata URL</code></li>
 <li>on the Application&#x27;s Overview page,<!-- -->
 <ul>
