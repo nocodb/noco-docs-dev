@@ -9,4 +9,4 @@
   to = "https://nocodb.com/docs/product-docs/:splat"
   status = 301
   force = true
-  conditions = { Host = "https://docs.nocodb.com" } 
+  conditions = { Host =["https://docs.nocodb.com"] } 
