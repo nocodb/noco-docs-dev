@@ -1,10 +1,4 @@
 [[redirects]]
-  from = "/0.109.7/*"
-  to = "/0.109.7/:splat"
-  status = 200
-  force = false
-
-[[redirects]]
   from = "/*"
   to = "https://nocodb.com/docs/product-docs/:splat"
   status = 301
