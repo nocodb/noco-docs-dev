@@ -1,4 +1,4 @@
 /0.109.7/* /0.109.7/:splat 200
 /assets/* /assets/:splat 200
-/getting-started/self-hosted/* https://nocodb.com/docs/self-hosting/installation/other-installations/:splat 301!
+/getting-started/self-hosted/* https://nocodb.com/docs/self-hosting/:splat 301!
 /* https://nocodb.com/docs/product-docs/:splat 301!
